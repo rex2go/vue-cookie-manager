@@ -1,0 +1,64 @@
+{
+    "language": "DE",
+    "categories": [
+        {
+            "id": 0,
+            "name": "Technisch notwendig",
+            "description": "Technisch notwendige Cookies sind Cookies die technisch notwendig sind Technisch notwendige Cookies sind Cookies die technisch notwendig sind",
+            "required": true
+        },
+        {
+            "id": 1,
+            "name": "Marketing",
+            "description": "Marketing halt"
+        }
+    ],
+    "services": [
+        {
+            "name": "Bongolana",
+            "category": 1,
+            "description": "Dies ist ein Conversion Service. Mithilfe des Conversion Services werden Bestellungen und Registrierungen auf unseren Internetseiten.de erfasst, die nach dem Klick auf die Anzeige oder Verlinkung getätigt wurden. Dies dient zur Anzeigen-/Verlinkungsoptimierung, deren Auswertbarkeit und zu Abrechnungszwecken.",
+            "privacyPolicy": "https://www.google.com/",
+            "dataCollected": "Test abhdsgvasgvd as dasd",
+            "cookies": [
+                {
+                    "name": "_ga",
+                    "duration": "24 months",
+                    "description": "Erhebung von Statistik über die Nutzung der Webseite. (Reichweitenmessung)" 
+                }
+            ],
+            "script": "bongolana.js"
+        },
+        {
+            "name": "Bongolana2",
+            "category": 1,
+            "description": "Dies ist ein Conversion Service. Mithilfe des Conversion Services werden Bestellungen und Registrierungen auf unseren Internetseiten.de erfasst, die nach dem Klick auf die Anzeige oder Verlinkung getätigt wurden. Dies dient zur Anzeigen-/Verlinkungsoptimierung, deren Auswertbarkeit und zu Abrechnungszwecken.",
+            "privacyPolicy": "https://www.google.com/",
+            "dataCollected": "Test abhdsgvasgvd as dasd",
+            "cookies": [
+                {
+                    "name": "_ga2",
+                    "duration": "24 months",
+                    "description": "Erhebung von Statistik über die Nutzung der Webseite. (Reichweitenmessung)" 
+                }
+            ]
+        },
+        {
+            "name": "wichtig",
+            "category": 0,
+            "description": "Dies ist s werden Bestellungen und Registrierungen auf unseren Internetseiten.de erfasst, die nach dem Klick auf die Anzeige oder Verlinkung getätigt wurden. Dies dient zur Anzeigen-/Verlinkungsoptimierung, deren Auswertbarkeit und zu Abrechnungszwecken.",
+            "privacyPolicy": "https://www.google.com/",
+            "dataCollected": "Test abhdsgvasgvd as dasd",
+            "cookies": [
+                {
+                    "name": "asdasd",
+                    "duration": "24 asda",
+                    "description": "Erhebunasdg von Statistik über die Nutzung der Webseite. (Reichweitenmessung)" 
+                }
+            ],
+            "script": "abc.js"
+        }
+    ],
+    "privaryPolicy": "#",
+    "imprint": "#"
+}

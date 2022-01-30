@@ -1,4 +1,5 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import ConsentManager from './ConsentManager.vue';
+import store from './store';
 
-createApp(App).mount('#app')
+createApp(ConsentManager).use(store).mount('#consentmanager');
