@@ -1,4 +1,4 @@
-# cookieconsent
+# ConsentManager
 
 ## Project setup
 ```
