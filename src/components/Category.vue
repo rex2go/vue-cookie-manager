@@ -45,6 +45,18 @@
         <div class="consentmanager__selection__item__detail__body">
           <div
             class="consentmanager__selection__item__detail__description"
+            v-if="service.vendor"
+          >
+            <span
+              class="
+                consentmanager__selection__item__detail__description__label
+              "
+              >Anbieter</span
+            >
+            {{ service.vendor }}
+          </div>
+          <div
+            class="consentmanager__selection__item__detail__description"
             v-if="service.description"
           >
             <span

@@ -37,21 +37,22 @@ export default {
     acceptAll() {
       this.services.forEach((service) => (service.active = true));
     },
-    denyAll() {},
+    denyAll() {
+      this.services.forEach((service) => (service.active = false));
+    },
     apply() {
-      // TODO fix mess
-      for (const category of this.categories) {
-        if (!category.required) continue;
-
-        for (const service of this.services) {
-          if (service.category !== category.id) continue;
-
-          service.active = true;
-        }
-      }
+      const categoryRequiredMapping = {};
+      
+      this.categories.forEach((category) => {
+        categoryRequiredMapping[category.id] = category.required ?? false;
+      });
 
       for (const service of this.services) {
-        if (!service.active) continue;
+        if(categoryRequiredMapping[service.category]) {
+          service.active = true;
+        } else if(!service.active) {
+          continue;
+        }
 
         if (!service.script) {
           console.warn(`Service ${service.name} has no script attribute.`);
