@@ -14,8 +14,15 @@
       >
         Einstellungen
       </button>
-      <button class="consentmanager-button" @click="$parent.apply()">Ablehnen</button>
-      <button class="consentmanager-button primary" @click="$parent.acceptAll() || $parent.apply()">Alle akzeptieren</button>
+      <button class="consentmanager-button" @click="$parent.apply()">
+        Ablehnen
+      </button>
+      <button
+        class="consentmanager-button primary"
+        @click="$parent.acceptAll() || $parent.apply()"
+      >
+        Alle akzeptieren
+      </button>
     </div>
     <div class="consentmanager__consent__links">
       <a v-if="privacyPolicy" :href="privacyPolicy">Datenschutzerklärung</a>
@@ -25,19 +32,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: "Consent",
   computed: {
-    privacyPolicy() {
-      return this.$store.state.privacyPolicy;
-    },
-    imprint() {
-      return this.$store.state.imprint;
-    },
+    ...mapState({
+      privacyPolicy: "privacyPolicy",
+      imprint: "imprint",
+    }),
   },
   methods: {
     goToSettings() {
-      this.$store.commit('setViewId', 1);
+      this.$store.commit("setViewId", 1);
     },
   },
 };
