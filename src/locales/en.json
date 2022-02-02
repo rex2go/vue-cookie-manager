@@ -1,0 +1,30 @@
+{
+    "showLess": "Show less",
+    "showMore": "Show more",
+    "acceptAll": "Accept All",
+    "decline": "Decline",
+    "settings": "Settings",
+    "imprint": "Imprint",
+    "privacyPolicy": "Privacy Policy",
+    "saveSelected": "Save selected",
+
+    "consentView": {
+        "title": "This website uses cookies",
+        "description": "This website uses cookies, JavaScript TODO"
+    },
+
+    "settingsView": {
+        "title": "Select your preference"
+    },
+
+    "technicallyNeccessary": "Technically neccessaray",
+    "statistics": "Statistics",
+    "other": "Other",
+
+    "vendor": "Vendor",
+    "description": "Description",
+    "dataCollected": "What data will be collected?",
+    "linkToPrivacyPolicy": "Link to privacy policy",
+    "duration": "Duration",
+    "name": "Name"
+}

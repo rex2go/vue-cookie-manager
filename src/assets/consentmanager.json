@@ -3,12 +3,12 @@
     "categories": [
         {
             "id": 0,
-            "name": "Technisch notwendig",
+            "name": "Technically neccessary",
             "required": true
         },
         {
             "id": 1,
-            "name": "Statistik"
+            "name": "Statistics"
         }
     ],
     "services": [

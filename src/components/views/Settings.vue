@@ -1,7 +1,7 @@
 <template>
   <div class="consentmanager__selection">
     <div class="consentmanager__selection__heading">
-      Wählen Sie Ihre Präferenz
+      {{ $t('settingsView.title') }}
     </div>
     <div class="consentmanager__selection__list">
       <Category
@@ -13,13 +13,13 @@
 
     <div class="consentmanager__selection__actions">
       <button class="consentmanager-button" @click="$parent.apply()">
-        Auswahl speichern
+        {{ $t('saveSelected') }}
       </button>
       <button
         class="consentmanager-button primary"
         @click="$parent.acceptAll() || $parent.apply()"
       >
-        Alle akzeptieren
+        {{ $t('acceptAll') }}
       </button>
     </div>
   </div>

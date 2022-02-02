@@ -1,32 +1,31 @@
 <template>
   <div class="consentmanager__consent">
     <div class="consentmanager__consent__heading">
-      Wir benötigen Ihre Zustimmung
+      {{ $t('consentView.title') }}
     </div>
     <div class="consentmanager__consent__text">
-      Diese Website nutzt Cookies und vergleichbare Funktionen zur Verarbeitung
-      von Endgeräteinformationen und personenbezogenen Daten.
+      {{ $t('consentView.description') }}
     </div>
     <div class="consentmanager__consent__actions">
       <button
         @click="goToSettings"
         class="consentmanager-button consentmanager__consent__settings"
       >
-        Einstellungen
+        {{ $t('settings') }}
       </button>
       <button class="consentmanager-button" @click="$parent.apply()">
-        Ablehnen
+        {{ $t('decline') }}
       </button>
       <button
         class="consentmanager-button primary"
         @click="$parent.acceptAll() || $parent.apply()"
       >
-        Alle akzeptieren
+        {{ $t('acceptAll') }}
       </button>
     </div>
     <div class="consentmanager__consent__links">
-      <a v-if="privacyPolicy" :href="privacyPolicy">Datenschutzerklärung</a>
-      <a v-if="imprint" :href="imprint">Impressum</a>
+      <a v-if="privacyPolicy" :href="privacyPolicy">{{ $t('privacyPolicy') }}</a>
+      <a v-if="imprint" :href="imprint">{{ $t('imprint') }}</a>
     </div>
   </div>
 </template>

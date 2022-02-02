@@ -1,7 +1,7 @@
 <template>
   <div class="consentmanager__selection__item">
     <div class="consentmanager__selection__item__head">
-      {{ category.name }}
+      {{ $t(category.name) }}
     </div>
     <div class="consentmanager__selection__item__info">
       {{ category.description }}
@@ -51,7 +51,7 @@
               class="
                 consentmanager__selection__item__detail__description__label
               "
-              >Anbieter</span
+              >{{ $t('vendor') }}</span
             >
             {{ service.vendor }}
           </div>
@@ -63,7 +63,7 @@
               class="
                 consentmanager__selection__item__detail__description__label
               "
-              >Beschreibung des Services</span
+              >{{ $t('description') }}</span
             >
             {{ service.description }}
           </div>
@@ -76,7 +76,7 @@
               class="
                 consentmanager__selection__item__detail__description__label
               "
-              >Welche Daten werden gesammelt?</span
+              >{{ $t('dataCollected') }}</span
             >
             {{ service.dataCollected }}
           </div>
@@ -85,17 +85,11 @@
             class="consentmanager__selection__item__detail__description"
             v-if="service.cookies"
           >
-            <span
-              class="
-                consentmanager__selection__item__detail__description__label
-              "
-              >Welche Daten werden gesammelt?</span
-            >
             <table class="consentmanager__selection__item__detail__cookies">
               <tr>
-                <th>Name</th>
-                <th>Dauer</th>
-                <th>Beschreibung</th>
+                <th>{{ $t('name') }}</th>
+                <th>{{ $t('duration') }}</th>
+                <th>{{ $t('description') }}</th>
               </tr>
               <tr v-for="cookie in service.cookies" :key="cookie.name">
                 <td>{{ cookie.name }}</td>
@@ -114,7 +108,7 @@
                 consentmanager__selection__item__detail__description__label
               "
               :href="service.privacyPolicy"
-              >Link zur Datenschutzerklärung</a
+              >{{ $t('linkToPrivacyPolicy') }}</a
             >
           </div>
         </div>
@@ -132,8 +126,8 @@ export default {
   data() {
     return {
       detailsOpen: false,
-      detailsShowMore: "Mehr anzeigen",
-      detailsShowLess: "Weniger anzeigen",
+      detailsShowMore: this.$t('showMore'),
+      detailsShowLess: this.$t('showLess'),
     };
   },
   computed: {
