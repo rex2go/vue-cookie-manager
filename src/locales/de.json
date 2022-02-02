@@ -24,7 +24,7 @@
     "vendor": "Anbieter",
     "description": "Beschreibung",
     "dataCollected": "Welche Daten werden gesammelt?",
-    "linkToPrivacyPolicy": "Link zur Datenschutzerklärung",
+    "linkToPrivacyPolicy": "Datenschutzerklärung",
     "duration": "Dauer",
     "name": "Name"
 }
