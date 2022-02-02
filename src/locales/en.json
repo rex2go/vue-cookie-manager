@@ -1,12 +1,12 @@
 {
     "showLess": "Show less",
     "showMore": "Show more",
-    "acceptAll": "Accept All",
+    "acceptAll": "Accept all",
     "decline": "Decline",
     "settings": "Settings",
     "imprint": "Imprint",
-    "privacyPolicy": "Privacy Policy",
-    "saveSelected": "Save Selected",
+    "privacyPolicy": "Privacy policy",
+    "saveSelected": "Save preferences",
 
     "consentView": {
         "title": "This website uses cookies",
@@ -14,17 +14,17 @@
     },
 
     "settingsView": {
-        "title": "Select your preference"
+        "title": "Select your preferences"
     },
 
-    "technicallyNeccessary": "Technically neccessaray",
-    "statistics": "Statistics",
+    "technicallyNeccessary": "Technically necessary",
+    "statistics": "Analytics",
     "other": "Other",
 
     "vendor": "Vendor",
     "description": "Description",
     "dataCollected": "What data will be collected?",
-    "linkToPrivacyPolicy": "Link to privacy policy",
+    "linkToPrivacyPolicy": "Privacy policy",
     "duration": "Duration",
     "name": "Name"
 }
