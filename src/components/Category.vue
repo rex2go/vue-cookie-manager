@@ -38,6 +38,7 @@
               :disabled="category.required"
               :checked="category.required || service.active"
 							v-model="service.active"
+              @change="toggleService($event)"
             />
             <div></div>
           </label>
@@ -139,6 +140,13 @@ export default {
     toggleCategory(category) {
       this.services.forEach(service => service.active = category.active);
     },
+    toggleService(event) {
+      if(event.target.checked && !this.category.active) {
+        this.category.active = true;
+      } else if(!this.services.filter(service => service.active).length) {
+        this.category.active = false;
+      }
+    }
   },
 };
 </script>
