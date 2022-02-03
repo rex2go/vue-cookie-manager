@@ -26,7 +26,16 @@
                     "description": "" 
                 }
             ],
-            "script": "bongolana.js"
+            "scripts": [
+                "abc.js",
+                {
+                    "script": "alert();",
+                    "inline": true
+                },
+                {
+                    "script": "def.js"
+                }
+            ]
         },
         {
             "name": "Google Adsense",
@@ -41,8 +50,7 @@
                     "duration": "1 Minute",
                     "description": "Wird zum Drosseln der Anforderungsrate verwendet. Wenn Google Analytics über den Google Tag Manager bereitgestellt wird, erhält dieser Cookie den Namen _dc_gtm_ ." 
                 }
-            ],
-            "script": "unwichtig.js"
+            ]
         }
     ],
     "privaryPolicy": "#",

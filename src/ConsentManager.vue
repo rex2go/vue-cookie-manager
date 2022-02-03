@@ -42,29 +42,50 @@ export default {
     },
     apply() {
       const categoryRequiredMapping = {};
-      
+
       this.categories.forEach((category) => {
         categoryRequiredMapping[category.id] = category.required ?? false;
       });
 
       for (const service of this.services) {
-        if(categoryRequiredMapping[service.category]) {
+        if (categoryRequiredMapping[service.category]) {
           service.active = true;
-        } else if(!service.active) {
+        } else if (!service.active) {
           continue;
         }
 
-        if (!service.script) {
-          console.warn(`Service ${service.name} has no script attribute.`);
+        if (!service.scripts || !service.scripts.length) {
+          console.warn(`Service ${service.name} has no scripts attribute.`);
           continue;
         }
 
-        const script = document.createElement("script");
+        for (let script of service.scripts) {
+          const scriptElement = document.createElement("script");
+          scriptElement.type = "text/javascript";
 
-        script.type = "text/javascript";
-        script.src = service.script;
+          let inline = false;
 
-        document.body.append(script);
+          if (
+            typeof script === "object" &&
+            !Array.isArray(script) &&
+            script !== null
+          ) {
+            inline = script.inline ?? false;
+            script = script.script;
+          }
+
+          if (inline) {
+            try {
+              scriptElement.appendChild(document.createTextNode(script));
+            } catch (e) {
+              scriptElement.text = script;
+            }
+          } else {
+            scriptElement.src = script;
+          }
+
+          document.body.append(scriptElement);
+        }
       }
 
       this.hide = true;
