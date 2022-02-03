@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!hide" class="consentmanager">
+  <div v-if="showConsentManager" class="consentmanager">
     <div class="consentmanager__dialogue">
       <Consent v-if="viewId == 0" />
       <Settings v-if="viewId == 1" />
@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import Consent from "./components/views/Consent.vue";
 import Settings from "./components/views/Settings.vue";
 
@@ -17,21 +18,18 @@ export default {
     Consent,
     Settings,
   },
-  data() {
-    return {
-      hide: false,
-    };
+  mounted() {
+    if (this.showConsentManager) return;
+
+    this.apply();
   },
   computed: {
-    viewId() {
-      return this.$store.state.viewId;
-    },
-    services() {
-      return this.$store.state.services;
-    },
-    categories() {
-      return this.$store.state.categories;
-    },
+    ...mapState({
+      viewId: "viewId",
+      showConsentManager: "showConsentManager",
+      services: "services",
+      categories: "categories",
+    }),
   },
   methods: {
     acceptAll() {
@@ -88,7 +86,20 @@ export default {
         }
       }
 
-      this.hide = true;
+      const services = {};
+
+      this.services.forEach((service) => {
+        services[service.name] = service.active ?? false;
+      });
+
+      window.localStorage.setItem(
+        "cm_consent",
+        JSON.stringify({
+          services,
+        })
+      );
+
+      this.$store.commit("setShowConsentManager", false);
     },
   },
 };
