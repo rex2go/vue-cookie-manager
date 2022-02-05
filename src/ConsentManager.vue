@@ -9,6 +9,7 @@
 
 <script>
 import { mapState } from "vuex";
+import { isObject } from './util';
 import Consent from "./components/views/Consent.vue";
 import Settings from "./components/views/Settings.vue";
 
@@ -63,11 +64,7 @@ export default {
 
           let inline = false;
 
-          if (
-            typeof script === "object" &&
-            !Array.isArray(script) &&
-            script !== null
-          ) {
+          if (isObject(script)) {
             inline = script.inline ?? false;
             script = script.script;
           }

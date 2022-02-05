@@ -3,12 +3,20 @@
     "categories": [
         {
             "id": 0,
-            "name": "Technically neccessary",
+            "name": {
+                "de": "Technisch notwendig",
+                "en": "Technically neccessary"
+            },
+            "description": {
+                "de": "Test Beschreibung",
+                "en": "Test Description"
+            },
             "required": true
         },
         {
             "id": 1,
-            "name": "Statistics"
+            "name": "Statistics",
+            "description": "Test Description"
         }
     ],
     "services": [
@@ -27,14 +35,7 @@
                 }
             ],
             "scripts": [
-                "abc.js",
-                {
-                    "script": "alert();",
-                    "inline": true
-                },
-                {
-                    "script": "def.js"
-                }
+                "abc.js"
             ]
         },
         {
@@ -49,6 +50,13 @@
                     "name": "_gat_gtag_UA_*",
                     "duration": "1 Minute",
                     "description": "Wird zum Drosseln der Anforderungsrate verwendet. Wenn Google Analytics über den Google Tag Manager bereitgestellt wird, erhält dieser Cookie den Namen _dc_gtm_ ." 
+                }
+            ],
+            "scripts": [
+                "google-adsense.js",
+                {
+                    "script": "alert('GOOGLE ADSENSE AKTIVIERT IHRE DATEN WERDEN NUN GEKLAUT');",
+                    "inline": true
                 }
             ]
         }

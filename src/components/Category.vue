@@ -1,10 +1,10 @@
 <template>
   <div class="consentmanager__selection__item">
     <div class="consentmanager__selection__item__head">
-      {{ $t(category.name) }}
+      {{ translate(category.name) }}
     </div>
     <div class="consentmanager__selection__item__info">
-      {{ category.description }}
+      {{ translate(category.description) }}
     </div>
     <div class="consentmanager__selection__item__consent">
       <span @click="detailsOpen = !detailsOpen">{{
@@ -14,7 +14,7 @@
         <input
           :disabled="category.required"
           :checked="category.required"
-					v-model="category.active"
+          v-model="category.active"
           @change="toggleCategory(category)"
           type="checkbox"
         />
@@ -37,7 +37,7 @@
               type="checkbox"
               :disabled="category.required"
               :checked="category.required || service.active"
-							v-model="service.active"
+              v-model="service.active"
               @change="toggleService($event)"
             />
             <div></div>
@@ -52,9 +52,9 @@
               class="
                 consentmanager__selection__item__detail__description__label
               "
-              >{{ $t('vendor') }}</span
+              >{{ $t("vendor") }}</span
             >
-            {{ service.vendor }}
+            {{ translate(service.vendor) }}
           </div>
           <div
             class="consentmanager__selection__item__detail__description"
@@ -64,9 +64,9 @@
               class="
                 consentmanager__selection__item__detail__description__label
               "
-              >{{ $t('description') }}</span
+              >{{ $t("description") }}</span
             >
-            {{ service.description }}
+            {{ translate(service.description) }}
           </div>
 
           <div
@@ -77,9 +77,9 @@
               class="
                 consentmanager__selection__item__detail__description__label
               "
-              >{{ $t('dataCollected') }}</span
+              >{{ $t("dataCollected") }}</span
             >
-            {{ service.dataCollected }}
+            {{ translate(service.dataCollected) }}
           </div>
 
           <div
@@ -88,14 +88,14 @@
           >
             <table class="consentmanager__selection__item__detail__cookies">
               <tr>
-                <th>{{ $t('name') }}</th>
-                <th>{{ $t('duration') }}</th>
-                <th>{{ $t('description') }}</th>
+                <th>{{ $t("name") }}</th>
+                <th>{{ $t("duration") }}</th>
+                <th>{{ $t("description") }}</th>
               </tr>
               <tr v-for="cookie in service.cookies" :key="cookie.name">
-                <td>{{ cookie.name }}</td>
-                <td>{{ cookie.duration }}</td>
-                <td>{{ cookie.description }}</td>
+                <td>{{ translate(cookie.name) }}</td>
+                <td>{{ translate(cookie.duration) }}</td>
+                <td>{{ translate(cookie.description) }}</td>
               </tr>
             </table>
           </div>
@@ -109,7 +109,7 @@
                 consentmanager__selection__item__detail__description__label
               "
               :href="service.privacyPolicy"
-              >{{ $t('linkToPrivacyPolicy') }}</a
+              >{{ $t("linkToPrivacyPolicy") }}</a
             >
           </div>
         </div>
@@ -119,6 +119,7 @@
 </template>
 
 <script>
+import { isObject } from "../util";
 export default {
   name: "Consent",
   props: {
@@ -127,8 +128,8 @@ export default {
   data() {
     return {
       detailsOpen: false,
-      detailsShowMore: this.$t('showMore'),
-      detailsShowLess: this.$t('showLess'),
+      detailsShowMore: this.$t("showMore"),
+      detailsShowLess: this.$t("showLess"),
     };
   },
   computed: {
@@ -138,14 +139,21 @@ export default {
   },
   methods: {
     toggleCategory(category) {
-      this.services.forEach(service => service.active = category.active);
+      this.services.forEach((service) => (service.active = category.active));
     },
     toggleService(event) {
-      if(event.target.checked && !this.category.active) {
+      if (event.target.checked && !this.category.active) {
         this.category.active = true;
-      } else if(!this.services.filter(service => service.active).length) {
+      } else if (!this.services.filter((service) => service.active).length) {
         this.category.active = false;
       }
+    },
+    translate(obj) {
+      if (isObject(obj)) {
+        return obj[this.$i18n.locale] ?? obj;
+      }
+
+      return obj;
     }
   },
 };
