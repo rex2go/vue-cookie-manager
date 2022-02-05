@@ -100,6 +100,8 @@
         padding: 24px 32px;
         border-radius: 8px;
         box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+        box-sizing: border-box;
+        max-width: 100vw;
 
         @media screen and (max-width: 768px) {
             border-radius: 0;
@@ -192,12 +194,20 @@
 
     &__selection {
         &__list {
-            padding: 1rem;
-            background-color: #ececec;
             margin: 1rem 0;
             max-height: 400px;
             overflow: auto;
             border-radius: 5px;
+
+            @media screen and (min-width: 769px) {
+                padding: 1rem;
+                background-color: #ececec;
+            }
+        }
+
+        &__actions {
+            margin: -0.3rem;
+            max-width: 100%;
         }
 
         &__heading {
@@ -237,6 +247,7 @@
                 > span {
                     cursor: pointer;
                     font-size: 0.8rem;
+                    text-decoration: underline;
                 }
             }
 
