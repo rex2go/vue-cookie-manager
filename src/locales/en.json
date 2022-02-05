@@ -17,10 +17,6 @@
         "title": "Select your preferences"
     },
 
-    "technicallyNeccessary": "Technically necessary",
-    "statistics": "Analytics",
-    "other": "Other",
-
     "vendor": "Vendor",
     "description": "Description",
     "dataCollected": "What data will be collected?",
