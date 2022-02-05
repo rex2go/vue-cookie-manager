@@ -13,7 +13,7 @@
       >
         {{ $t('settings') }}
       </button>
-      <button class="consentmanager-button" @click="$parent.apply()">
+      <button class="consentmanager-button" @click="$parent.denyAll() || $parent.apply()">
         {{ $t('decline') }}
       </button>
       <button

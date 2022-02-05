@@ -1,8 +1,8 @@
 <template>
   <div v-if="showConsentManager" class="consentmanager">
     <div class="consentmanager__dialogue">
-      <Consent v-if="viewId == 0" />
-      <Settings v-if="viewId == 1" />
+      <Consent v-if="viewId === 0" />
+      <Settings v-if="viewId === 1" />
     </div>
   </div>
 </template>

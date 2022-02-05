@@ -18,7 +18,6 @@
           @change="toggleCategory(category)"
           type="checkbox"
         />
-        <div></div>
       </label>
     </div>
 
@@ -40,7 +39,6 @@
               v-model="service.active"
               @change="toggleService($event)"
             />
-            <div></div>
           </label>
         </div>
         <div class="consentmanager__selection__item__detail__body">
@@ -119,7 +117,8 @@
 </template>
 
 <script>
-import { isObject } from "../util";
+import { isObject } from "@/util";
+
 export default {
   name: "Consent",
   props: {
