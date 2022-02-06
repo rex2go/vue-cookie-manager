@@ -1,5 +1,5 @@
 import ConsentManager from "@/CookieManager";
-import i18n from './i18n'
+import i18n from '@/i18n'
 import {createStore} from "vuex";
 import store from "@/store";
 
