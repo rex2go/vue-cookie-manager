@@ -5,9 +5,9 @@
     </div>
     <div class="consentmanager__selection__list">
       <Category
-        v-for="category of categories"
-        :key="category.name"
-        :category="category"
+          v-for="category of categories"
+          :key="category.name"
+          :category="category"
       />
     </div>
 
@@ -16,8 +16,8 @@
         {{ $t('saveSelected') }}
       </button>
       <button
-        class="consentmanager-button primary"
-        @click="$parent.acceptAll() || $parent.apply()"
+          class="consentmanager-button primary"
+          @click="$parent.acceptAll() || $parent.apply()"
       >
         {{ $t('acceptAll') }}
       </button>
@@ -26,15 +26,15 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import {mapState} from "vuex";
 import Category from "../Category.vue";
 
 export default {
-  components: { Category },
+  components: {Category},
   name: "Settings",
   computed: {
     ...mapState({
-      categories: "categories",
+      categories: state => state.pcm.categories,
     }),
   },
 };

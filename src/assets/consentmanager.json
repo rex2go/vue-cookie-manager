@@ -1,66 +1,65 @@
 {
-    "language": "DE",
-    "categories": [
+  "categories": [
+    {
+      "id": 0,
+      "name": {
+        "de": "Technisch notwendig",
+        "en": "Technically neccessary"
+      },
+      "description": {
+        "de": "Test Beschreibung",
+        "en": "Test Description"
+      },
+      "required": true
+    },
+    {
+      "id": 1,
+      "name": "Statistics",
+      "description": "Test Description"
+    }
+  ],
+  "services": [
+    {
+      "name": "ConsentManager",
+      "vendor": "Tim Hübert",
+      "category": 0,
+      "description": "",
+      "privacyPolicy": "https://puzzlewithfriends.net/privacy-policy",
+      "dataCollected": "",
+      "cookies": [
         {
-            "id": 0,
-            "name": {
-                "de": "Technisch notwendig",
-                "en": "Technically neccessary"
-            },
-            "description": {
-                "de": "Test Beschreibung",
-                "en": "Test Description"
-            },
-            "required": true
-        },
-        {
-            "id": 1,
-            "name": "Statistics",
-            "description": "Test Description"
+          "name": "cm_consent",
+          "duration": "12 Monate",
+          "description": ""
         }
-    ],
-    "services": [
+      ],
+      "scripts": [
+        "abc.js"
+      ]
+    },
+    {
+      "name": "Google Adsense",
+      "vendor": "Google Ireland Limited, Google Building Gordon House, 4 Barrow St, Dublin, D04 E5W5, Ireland",
+      "category": 1,
+      "description": "Erhebung von Statistik der Nutzung der Website.",
+      "privacyPolicy": "https://policies.google.com/privacy?hl=de",
+      "dataCollected": "Browserinformationen (Browsertyp, Referrer-/Exit-Seiten, die auf unserer Website angezeigten Dateien, Betriebssystem, Datums-/Zeitstempel und/oder Clickstream-Daten)Nutzungsdaten (Ansichten, Klicks)IP-Adresse (Wir haben die IP-Anonymisierung auf der Website aktiviert (sog. IP-Masking), sodass Ihre IP-Adresse von Google innerhalb der EU und des EWR vor der Übertragung soweit gekürzt wird, dass sie keine Rückschlüsse mehr auf einzelne Personen zulässt. Lediglich diese anonymisierte IP-Adresse wird an Google übermittelt.)Mehr Details finden Sie hier:https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage",
+      "cookies": [
         {
-            "name": "ConsentManager",
-            "vendor": "Tim Hübert",
-            "category": 0,
-            "description": "",
-            "privacyPolicy": "https://puzzlewithfriends.net/privacy-policy",
-            "dataCollected": "",
-            "cookies": [
-                {
-                    "name": "cm_consent",
-                    "duration": "12 Monate",
-                    "description": "" 
-                }
-            ],
-            "scripts": [
-                "abc.js"
-            ]
-        },
-        {
-            "name": "Google Adsense",
-            "vendor": "Google Ireland Limited, Google Building Gordon House, 4 Barrow St, Dublin, D04 E5W5, Ireland",
-            "category": 1,
-            "description": "Erhebung von Statistik der Nutzung der Website.",
-            "privacyPolicy": "https://policies.google.com/privacy?hl=de",
-            "dataCollected": "Browserinformationen (Browsertyp, Referrer-/Exit-Seiten, die auf unserer Website angezeigten Dateien, Betriebssystem, Datums-/Zeitstempel und/oder Clickstream-Daten)Nutzungsdaten (Ansichten, Klicks)IP-Adresse (Wir haben die IP-Anonymisierung auf der Website aktiviert (sog. IP-Masking), sodass Ihre IP-Adresse von Google innerhalb der EU und des EWR vor der Übertragung soweit gekürzt wird, dass sie keine Rückschlüsse mehr auf einzelne Personen zulässt. Lediglich diese anonymisierte IP-Adresse wird an Google übermittelt.)Mehr Details finden Sie hier:https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage",
-            "cookies": [
-                {
-                    "name": "_gat_gtag_UA_*",
-                    "duration": "1 Minute",
-                    "description": "Wird zum Drosseln der Anforderungsrate verwendet. Wenn Google Analytics über den Google Tag Manager bereitgestellt wird, erhält dieser Cookie den Namen _dc_gtm_ ." 
-                }
-            ],
-            "scripts": [
-                "google-adsense.js",
-                {
-                    "script": "alert('GOOGLE ADSENSE AKTIVIERT IHRE DATEN WERDEN NUN GEKLAUT');",
-                    "inline": true
-                }
-            ]
+          "name": "_gat_gtag_UA_*",
+          "duration": "1 Minute",
+          "description": "Wird zum Drosseln der Anforderungsrate verwendet. Wenn Google Analytics über den Google Tag Manager bereitgestellt wird, erhält dieser Cookie den Namen _dc_gtm_ ."
         }
-    ],
-    "privaryPolicy": "#",
-    "imprint": "#"
+      ],
+      "scripts": [
+        "google-adsense.js",
+        {
+          "script": "alert('GOOGLE ADSENSE AKTIVIERT IHRE DATEN WERDEN NUN GEKLAUT');",
+          "inline": true
+        }
+      ]
+    }
+  ],
+  "privacyPolicy": "#",
+  "imprint": "#"
 }

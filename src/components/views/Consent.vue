@@ -8,8 +8,8 @@
     </div>
     <div class="consentmanager__consent__actions">
       <button
-        @click="goToSettings"
-        class="consentmanager-button consentmanager__consent__settings"
+          @click="goToSettings"
+          class="consentmanager-button consentmanager__consent__settings"
       >
         {{ $t('settings') }}
       </button>
@@ -17,8 +17,8 @@
         {{ $t('decline') }}
       </button>
       <button
-        class="consentmanager-button primary"
-        @click="$parent.acceptAll() || $parent.apply()"
+          class="consentmanager-button primary"
+          @click="$parent.acceptAll() || $parent.apply()"
       >
         {{ $t('acceptAll') }}
       </button>
@@ -31,14 +31,14 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import {mapState} from 'vuex'
 
 export default {
   name: "Consent",
   computed: {
     ...mapState({
-      privacyPolicy: "privacyPolicy",
-      imprint: "imprint",
+      privacyPolicy: state => state.pcm.privacyPolicy,
+      imprint: state => state.pcm.imprint,
     }),
   },
   methods: {

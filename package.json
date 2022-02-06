@@ -1,5 +1,5 @@
 {
-  "name": "cookie-banner",
+  "name": "privacy-consent-manager",
   "version": "0.1.0",
   "scripts": {
     "serve": "vue-cli-service serve",

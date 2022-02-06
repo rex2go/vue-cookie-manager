@@ -8,24 +8,24 @@
     </div>
     <div class="consentmanager__selection__item__consent">
       <span @click="detailsOpen = !detailsOpen">{{
-        detailsOpen ? detailsShowLess : detailsShowMore
-      }}</span>
+          detailsOpen ? detailsShowLess : detailsShowMore
+        }}</span>
       <label class="consentmanager-slider">
         <input
-          :disabled="category.required"
-          :checked="category.required"
-          v-model="category.active"
-          @change="toggleCategory(category)"
-          type="checkbox"
+            :disabled="category.required"
+            :checked="category.required"
+            v-model="category.active"
+            @change="toggleCategory(category)"
+            type="checkbox"
         />
       </label>
     </div>
 
     <div class="consentmanager__selection__item__details" v-show="detailsOpen">
       <div
-        class="consentmanager__selection__item__detail"
-        v-for="service in services"
-        :key="service.name"
+          class="consentmanager__selection__item__detail"
+          v-for="service in services"
+          :key="service.name"
       >
         <div class="consentmanager__selection__item__detail__head">
           <div class="consentmanager__selection__item__details__name">
@@ -33,56 +33,56 @@
           </div>
           <label class="consentmanager-slider">
             <input
-              type="checkbox"
-              :disabled="category.required"
-              :checked="category.required || service.active"
-              v-model="service.active"
-              @change="toggleService($event)"
+                type="checkbox"
+                :disabled="category.required"
+                :checked="category.required || service.active"
+                v-model="service.active"
+                @change="toggleService($event)"
             />
           </label>
         </div>
         <div class="consentmanager__selection__item__detail__body">
           <div
-            class="consentmanager__selection__item__detail__description"
-            v-if="service.vendor"
+              class="consentmanager__selection__item__detail__description"
+              v-if="service.vendor"
           >
             <span
-              class="
+                class="
                 consentmanager__selection__item__detail__description__label
               "
-              >{{ $t("vendor") }}</span
+            >{{ $t("vendor") }}</span
             >
             {{ translate(service.vendor) }}
           </div>
           <div
-            class="consentmanager__selection__item__detail__description"
-            v-if="service.description"
+              class="consentmanager__selection__item__detail__description"
+              v-if="service.description"
           >
             <span
-              class="
+                class="
                 consentmanager__selection__item__detail__description__label
               "
-              >{{ $t("description") }}</span
+            >{{ $t("description") }}</span
             >
             {{ translate(service.description) }}
           </div>
 
           <div
-            class="consentmanager__selection__item__detail__description"
-            v-if="service.dataCollected"
+              class="consentmanager__selection__item__detail__description"
+              v-if="service.dataCollected"
           >
             <span
-              class="
+                class="
                 consentmanager__selection__item__detail__description__label
               "
-              >{{ $t("dataCollected") }}</span
+            >{{ $t("dataCollected") }}</span
             >
             {{ translate(service.dataCollected) }}
           </div>
 
           <div
-            class="consentmanager__selection__item__detail__description"
-            v-if="service.cookies"
+              class="consentmanager__selection__item__detail__description"
+              v-if="service.cookies"
           >
             <table class="consentmanager__selection__item__detail__cookies">
               <tr>
@@ -99,15 +99,15 @@
           </div>
 
           <div
-            class="consentmanager__selection__item__detail__description"
-            v-if="service.privacyPolicy"
+              class="consentmanager__selection__item__detail__description"
+              v-if="service.privacyPolicy"
           >
             <a
-              class="
+                class="
                 consentmanager__selection__item__detail__description__label
               "
-              :href="service.privacyPolicy"
-              >{{ $t("linkToPrivacyPolicy") }}</a
+                :href="service.privacyPolicy"
+            >{{ $t("linkToPrivacyPolicy") }}</a
             >
           </div>
         </div>
@@ -117,7 +117,7 @@
 </template>
 
 <script>
-import { isObject } from "@/util";
+import {isObject} from "@/util";
 
 export default {
   name: "Consent",

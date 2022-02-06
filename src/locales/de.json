@@ -1,26 +1,23 @@
 {
-    "showLess": "Weniger anzeigen",
-    "showMore": "Mehr anzeigen",
-    "acceptAll": "Alle akzeptieren",
-    "decline": "Ablehnen",
-    "settings": "Einstellungen",
-    "imprint": "Impressum",
-    "privacyPolicy": "Datenschutzerklärung",
-    "saveSelected": "Auswahl speichern",
-
-    "consentView": {
-        "title": "Diese Webseite verwendet Cookies 🍪",
-        "description": "Diese Website nutzt Cookies und vergleichbare Funktionen zur Verarbeitung von Endgeräteinformationen und personenbezogenen Daten."
-    },
-
-    "settingsView": {
-        "title": "Wählen Sie Ihre Präferenz"
-    },
-
-    "vendor": "Anbieter",
-    "description": "Beschreibung",
-    "dataCollected": "Welche Daten werden gesammelt?",
-    "linkToPrivacyPolicy": "Datenschutzerklärung",
-    "duration": "Dauer",
-    "name": "Name"
+  "showLess": "Weniger anzeigen",
+  "showMore": "Mehr anzeigen",
+  "acceptAll": "Alle akzeptieren",
+  "decline": "Ablehnen",
+  "settings": "Einstellungen",
+  "imprint": "Impressum",
+  "privacyPolicy": "Datenschutzerklärung",
+  "saveSelected": "Auswahl speichern",
+  "consentView": {
+    "title": "Diese Webseite verwendet Cookies",
+    "description": "Diese Website nutzt Cookies und vergleichbare Funktionen zur Verarbeitung von Endgeräteinformationen und personenbezogenen Daten."
+  },
+  "settingsView": {
+    "title": "Wählen Sie Ihre Präferenz"
+  },
+  "vendor": "Anbieter",
+  "description": "Beschreibung",
+  "dataCollected": "Welche Daten werden gesammelt?",
+  "linkToPrivacyPolicy": "Datenschutzerklärung",
+  "duration": "Dauer",
+  "name": "Name"
 }

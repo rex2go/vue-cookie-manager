@@ -1,22 +1,13 @@
-import { createStore } from 'vuex'
-
 import config from '../assets/consentmanager.json';
 
 const consentPreferencesJSON = window.localStorage.getItem('cm_consent');
 const consentPreferences = JSON.parse(consentPreferencesJSON ?? '{}');
-const services = config.services.map(service => {
-    if(consentPreferences && consentPreferences.services) {
-        service.active = consentPreferences.services[service.name];
-    }
+const services = updateServices((config.services));
 
-    return service;
-});
-
-export default createStore({
+export default {
     state: {
-        language: config.language,
         categories: config.categories,
-        services,
+        services: services,
         privacyPolicy: config.privaryPolicy,
         imprint: config.imprint,
 
@@ -29,8 +20,11 @@ export default createStore({
         }
     },
     mutations: {
-        setLanguage(state, language) {
-            state.language = language;
+        setConfig(state, config) {
+            state.categories = config.categories;
+            state.services = updateServices(config.services);
+            state.privacyPolicy = config.privacyPolicy;
+            state.imprint = config.imprint;
         },
         setViewId(state, viewId) {
             state.viewId = viewId;
@@ -39,8 +33,15 @@ export default createStore({
             state.showConsentManager = showConsentManager;
         },
     },
-    actions: {
-    },
-    modules: {
-    }
-});
+    actions: {},
+}
+
+function updateServices(services) {
+    return services.map(service => {
+        if (consentPreferences && consentPreferences.services) {
+            service.active = consentPreferences.services[service.name];
+        }
+
+        return service;
+    });
+}

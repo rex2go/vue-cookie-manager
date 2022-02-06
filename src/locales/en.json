@@ -1,26 +1,23 @@
 {
-    "showLess": "Show less",
-    "showMore": "Show more",
-    "acceptAll": "Accept all",
-    "decline": "Decline",
-    "settings": "Settings",
-    "imprint": "Imprint",
-    "privacyPolicy": "Privacy policy",
-    "saveSelected": "Save preferences",
-
-    "consentView": {
-        "title": "This website uses cookies",
-        "description": "This website uses cookies, JavaScript TODO"
-    },
-
-    "settingsView": {
-        "title": "Select your preferences"
-    },
-
-    "vendor": "Vendor",
-    "description": "Description",
-    "dataCollected": "What data will be collected?",
-    "linkToPrivacyPolicy": "Privacy policy",
-    "duration": "Duration",
-    "name": "Name"
+  "showLess": "Show less",
+  "showMore": "Show more",
+  "acceptAll": "Accept all",
+  "decline": "Decline",
+  "settings": "Settings",
+  "imprint": "Imprint",
+  "privacyPolicy": "Privacy policy",
+  "saveSelected": "Save preferences",
+  "consentView": {
+    "title": "This website uses cookies",
+    "description": "This website uses cookies, JavaScript TODO"
+  },
+  "settingsView": {
+    "title": "Select your preferences"
+  },
+  "vendor": "Vendor",
+  "description": "Description",
+  "dataCollected": "What data will be collected?",
+  "linkToPrivacyPolicy": "Privacy policy",
+  "duration": "Duration",
+  "name": "Name"
 }

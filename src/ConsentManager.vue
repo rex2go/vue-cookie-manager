@@ -1,15 +1,15 @@
 <template>
   <div v-if="showConsentManager" class="consentmanager">
     <div class="consentmanager__dialogue">
-      <Consent v-if="viewId === 0" />
-      <Settings v-if="viewId === 1" />
+      <Consent v-if="viewId === 0"/>
+      <Settings v-if="viewId === 1"/>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
-import { isObject } from './util';
+import {mapState} from "vuex";
+import {isObject} from './util';
 import Consent from "./components/views/Consent.vue";
 import Settings from "./components/views/Settings.vue";
 
@@ -19,17 +19,47 @@ export default {
     Consent,
     Settings,
   },
+  props: {
+    config: {
+      type: Object,
+      required: false,
+    },
+    locale: {
+      type: String,
+      required: false,
+    },
+    locales: {
+      type: Object,
+      required: false,
+    }
+  },
   mounted() {
     if (this.showConsentManager) return;
 
     this.apply();
   },
+  created() {
+    this.$i18n.locale = (navigator.language || navigator.userLanguage)?.split('-')[0] || this.locale || 'en';
+
+    if (this.config) {
+      this.$store.commit('setConfig', this.config);
+    }
+
+    if (this.locales) {
+      for (const locale of Object.keys(this.locales)) {
+        this.$i18n.messages[locale] = {
+          ...(this.$i18n.messages[locale] ?? {}),
+          ...this.locales[this.locale],
+        };
+      }
+    }
+  },
   computed: {
     ...mapState({
-      viewId: "viewId",
-      showConsentManager: "showConsentManager",
-      services: "services",
-      categories: "categories",
+      viewId: state => state.pcm.viewId,
+      showConsentManager: state => state.pcm.showConsentManager,
+      services: state => state.pcm.services,
+      categories: state => state.pcm.categories,
     }),
   },
   methods: {
@@ -90,10 +120,10 @@ export default {
       });
 
       window.localStorage.setItem(
-        "cm_consent",
-        JSON.stringify({
-          services,
-        })
+          "cm_consent",
+          JSON.stringify({
+            services,
+          })
       );
 
       this.$store.commit("setShowConsentManager", false);
