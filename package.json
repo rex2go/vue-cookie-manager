@@ -5,6 +5,21 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rex2go/vue-cookie-manager"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "cookie",
+    "dsgvo",
+    "cookie-banner",
+    "gdpr",
+    "consent"
+  ],
+  "author": "Tim Hübert",
+  "license" : "MIT",
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
