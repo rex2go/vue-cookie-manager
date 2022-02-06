@@ -1,7 +1,7 @@
 <template>
   <div class="cookie-manager__selection">
     <div class="cookie-manager__selection__heading">
-      {{ $t('settingsView.title') }}
+      {{ $vcm_t('settingsView.title') }}
     </div>
     <div class="cookie-manager__selection__list">
       <Category
@@ -13,13 +13,13 @@
 
     <div class="cookie-manager__selection__actions">
       <button class="cookie-manager-button" @click="$parent.apply()">
-        {{ $t('saveSelected') }}
+        {{ $vcm_t('saveSelected') }}
       </button>
       <button
           class="cookie-manager-button primary"
           @click="$parent.acceptAll() || $parent.apply()"
       >
-        {{ $t('acceptAll') }}
+        {{ $vcm_t('acceptAll') }}
       </button>
     </div>
   </div>

@@ -50,7 +50,7 @@
                 class="
                 cookie-manager__selection__item__detail__description__label
               "
-            >{{ $t("vendor") }}</span
+            >{{ $vcm_t("vendor") }}</span
             >
             {{ translate(service.vendor) }}
           </div>
@@ -62,7 +62,7 @@
                 class="
                 cookie-manager__selection__item__detail__description__label
               "
-            >{{ $t("description") }}</span
+            >{{ $vcm_t("description") }}</span
             >
             {{ translate(service.description) }}
           </div>
@@ -75,7 +75,7 @@
                 class="
                 cookie-manager__selection__item__detail__description__label
               "
-            >{{ $t("dataCollected") }}</span
+            >{{ $vcm_t("dataCollected") }}</span
             >
             {{ translate(service.dataCollected) }}
           </div>
@@ -86,9 +86,9 @@
           >
             <table class="cookie-manager__selection__item__detail__cookies">
               <tr>
-                <th>{{ $t("name") }}</th>
-                <th>{{ $t("duration") }}</th>
-                <th>{{ $t("description") }}</th>
+                <th>{{ $vcm_t("name") }}</th>
+                <th>{{ $vcm_t("duration") }}</th>
+                <th>{{ $vcm_t("description") }}</th>
               </tr>
               <tr v-for="cookie in service.cookies" :key="cookie.name">
                 <td>{{ translate(cookie.name) }}</td>
@@ -107,7 +107,7 @@
                 cookie-manager__selection__item__detail__description__label
               "
                 :href="service.privacyPolicy"
-            >{{ $t("linkToPrivacyPolicy") }}</a
+            >{{ $vcm_t("linkToPrivacyPolicy") }}</a
             >
           </div>
         </div>
@@ -128,8 +128,8 @@ export default {
   data() {
     return {
       detailsOpen: false,
-      detailsShowMore: this.$t("showMore"),
-      detailsShowLess: this.$t("showLess"),
+      detailsShowMore: this.$vcm_t("showMore"),
+      detailsShowLess: this.$vcm_t("showLess"),
     };
   },
   computed: {
@@ -150,7 +150,7 @@ export default {
     },
     translate(obj) {
       if (isObject(obj)) {
-        return obj[this.$i18n.locale] ?? obj;
+        return obj[this.$vcm_td.locale] ?? obj;
       }
 
       return obj;

@@ -12,6 +12,7 @@ import {mapState} from "vuex";
 import {isObject} from './util';
 import Consent from "./views/Consent.vue";
 import Settings from "./views/Settings.vue";
+import translator from "@/translation";
 
 export default {
   name: "CookieManager",
@@ -39,7 +40,7 @@ export default {
     this.apply();
   },
   created() {
-    this.$i18n.locale = (navigator.language || navigator.userLanguage)?.split('-')[0] || this.locale || 'en';
+    this.$vcm_td.locale = (navigator.language || navigator.userLanguage)?.split('-')[0] || this.locale || 'en';
 
     if (this.config) {
       this.$store.commit('setConfig', this.config);
@@ -47,8 +48,8 @@ export default {
 
     if (this.locales) {
       for (const locale of Object.keys(this.locales)) {
-        this.$i18n.messages[locale] = {
-          ...(this.$i18n.messages[locale] ?? {}),
+        this.$vcm_td.messages[locale] = {
+          ...(this.$vcm_td.messages[locale] ?? {}),
           ...this.locales[this.locale],
         };
       }
