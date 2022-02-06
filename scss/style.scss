@@ -78,10 +78,20 @@
         background-color: #ececec;
         margin: 0.3rem;
         cursor: pointer;
+        color: $black;
+        transition: background-color 0.1s;
 
         &.primary {
             background-color: $black;
             color: $white;
+
+            &:hover {
+                background-color: black;
+            }
+        }
+
+        &:hover {
+            background-color: #cbcbcb;
         }
 
         @media screen and (max-width: 768px) {
