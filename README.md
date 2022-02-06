@@ -1,19 +1,11 @@
-# ConsentManager
+# vue-cookie-manager
 
-## Project setup
-```
-yarn install
-```
+This project is still under development. Use with caution.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Usage
 
-### Compiles and minifies for production
-```
-yarn build
-```
+TBD
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Documentation
+
+TBD
