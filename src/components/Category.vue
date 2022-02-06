@@ -18,6 +18,7 @@
             @change="toggleCategory(category)"
             type="checkbox"
         />
+        <div></div>
       </label>
     </div>
 
@@ -39,6 +40,7 @@
                 v-model="service.active"
                 @change="toggleService($event)"
             />
+            <div></div>
           </label>
         </div>
         <div class="cookie-manager__selection__item__detail__body">
