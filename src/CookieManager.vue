@@ -12,7 +12,6 @@ import {mapState} from "vuex";
 import {isObject} from './util';
 import Consent from "./views/Consent.vue";
 import Settings from "./views/Settings.vue";
-import translator from "@/translation";
 
 export default {
   name: "CookieManager",

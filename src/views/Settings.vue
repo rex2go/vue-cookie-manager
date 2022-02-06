@@ -10,8 +10,10 @@
           :category="category"
       />
     </div>
-
     <div class="cookie-manager__selection__actions">
+      <button class="cookie-manager-button" @click="goBack">
+        {{ $vcm_t('back') }}
+      </button>
       <button class="cookie-manager-button" @click="$parent.apply()">
         {{ $vcm_t('saveSelected') }}
       </button>
@@ -36,6 +38,11 @@ export default {
     ...mapState('vcm', {
       categories: 'categories',
     }),
+  },
+  methods: {
+    goBack() {
+      this.$store.commit('vcm/setViewId', 0)
+    },
   },
 };
 </script>

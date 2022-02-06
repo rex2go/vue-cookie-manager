@@ -19,5 +19,6 @@
   "dataCollected": "Welche Daten werden gesammelt?",
   "linkToPrivacyPolicy": "Datenschutzerklärung",
   "duration": "Dauer",
-  "name": "Name"
+  "name": "Name",
+  "back": "Zurück"
 }

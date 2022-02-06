@@ -109,6 +109,8 @@
                 cookie-manager__selection__item__detail__description__label
               "
                 :href="service.privacyPolicy"
+                target="_blank"
+                rel="noopener noreferrer"
             >{{ $vcm_t("linkToPrivacyPolicy") }}</a
             >
           </div>
