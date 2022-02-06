@@ -1,7 +1,7 @@
-import ConsentManager from "@/CookieManager";
-import i18n from '@/i18n'
+import CookieManager from "./src/CookieManager";
+import i18n from './src/i18n'
 import {createStore} from "vuex";
-import store from "@/store";
+import store from "./src/store";
 
 const install = app => {
     const vi18n = app.__VUE_I18N__;
@@ -25,12 +25,19 @@ const install = app => {
             },
         }));
     } else {
-        vstore.registerModule('vcm', store);
+        if(!vstore.hasModule('vcm')) {
+            vstore.registerModule('vcm', store);
+        }
     }
 
-    app.component(ConsentManager.name, ConsentManager);
+    app.component(CookieManager.name, CookieManager);
 };
 
 export default {
     install,
-};
+}
+
+const inBrowser = typeof window !== "undefined";
+if (inBrowser && window.Vue) {
+    window.Vue.use({ install });
+}

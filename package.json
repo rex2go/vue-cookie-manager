@@ -1,9 +1,11 @@
 {
   "name": "vue-cookie-manager",
-  "version": "0.1.2",
+  "version": "0.1.3",
+  "main": "dist/vue-cookie-manager.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build --target lib --name vue-cookie-manager ./index.js",
+    "build:standalone": "vue-cli-service build --name vue-cookie-manager ./src/main.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,10 @@
     "gdpr",
     "consent"
   ],
-  "author": "Tim Hübert",
+  "bugs": {
+    "url": "https://github.com/rex2go/vue-cookie-manager/issues"
+  },
+  "author": "Tim Hübert (https://github.com/rex2go)",
   "license" : "MIT",
   "dependencies": {
     "core-js": "^3.6.5",

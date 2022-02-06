@@ -117,7 +117,7 @@
 </template>
 
 <script>
-import {isObject} from "@/util";
+import {isObject} from "../util";
 import {mapGetters} from "vuex";
 
 export default {
