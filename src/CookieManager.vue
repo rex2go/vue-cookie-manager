@@ -1,6 +1,6 @@
 <template>
-  <div v-if="showConsentManager" class="consentmanager">
-    <div class="consentmanager__dialogue">
+  <div v-if="showCookieManager" class="cookie-manager">
+    <div class="cookie-manager__dialogue">
       <Consent v-if="viewId === 0"/>
       <Settings v-if="viewId === 1"/>
     </div>
@@ -10,11 +10,11 @@
 <script>
 import {mapState} from "vuex";
 import {isObject} from './util';
-import Consent from "./components/views/Consent.vue";
-import Settings from "./components/views/Settings.vue";
+import Consent from "./views/Consent.vue";
+import Settings from "./views/Settings.vue";
 
 export default {
-  name: "ConsentManager",
+  name: "CookieManager",
   components: {
     Consent,
     Settings,
@@ -34,7 +34,7 @@ export default {
     }
   },
   mounted() {
-    if (this.showConsentManager) return;
+    if (this.showCookieManager) return;
 
     this.apply();
   },
@@ -55,11 +55,11 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      viewId: state => state.pcm.viewId,
-      showConsentManager: state => state.pcm.showConsentManager,
-      services: state => state.pcm.services,
-      categories: state => state.pcm.categories,
+    ...mapState('vcm', {
+      viewId: 'viewId',
+      showCookieManager: 'showCookieManager',
+      services: 'services',
+      categories: 'categories',
     }),
   },
   methods: {
@@ -126,12 +126,12 @@ export default {
           })
       );
 
-      this.$store.commit("setShowConsentManager", false);
+      this.$store.commit("vcm/setShowCookieManager", false);
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import "./scss/consentmanager.scss";
+@import "./scss/style.scss";
 </style>

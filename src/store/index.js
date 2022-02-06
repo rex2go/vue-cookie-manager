@@ -1,17 +1,18 @@
-import config from '../assets/consentmanager.json';
+import config from '../config/vcm-config.json';
 
-const consentPreferencesJSON = window.localStorage.getItem('cm_consent');
-const consentPreferences = JSON.parse(consentPreferencesJSON ?? '{}');
+const cookiePreferencesJSON = window.localStorage.getItem('cm_consent');
+const cookiePreferences = JSON.parse(cookiePreferencesJSON ?? '{}');
 const services = updateServices((config.services));
 
 export default {
+    namespaced: true,
     state: {
         categories: config.categories,
         services: services,
-        privacyPolicy: config.privaryPolicy,
+        privacyPolicy: config.privacyPolicy,
         imprint: config.imprint,
 
-        showConsentManager: !consentPreferencesJSON,
+        showCookieManager: !cookiePreferencesJSON,
         viewId: 0,
     },
     getters: {
@@ -29,8 +30,8 @@ export default {
         setViewId(state, viewId) {
             state.viewId = viewId;
         },
-        setShowConsentManager(state, showConsentManager) {
-            state.showConsentManager = showConsentManager;
+        setShowCookieManager(state, showCookieManager) {
+            state.showCookieManager = showCookieManager;
         },
     },
     actions: {},
@@ -38,8 +39,8 @@ export default {
 
 function updateServices(services) {
     return services.map(service => {
-        if (consentPreferences && consentPreferences.services) {
-            service.active = consentPreferences.services[service.name];
+        if (cookiePreferences && cookiePreferences.services) {
+            service.active = cookiePreferences.services[service.name];
         }
 
         return service;

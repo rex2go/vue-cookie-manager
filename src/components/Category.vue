@@ -1,16 +1,16 @@
 <template>
-  <div class="consentmanager__selection__item">
-    <div class="consentmanager__selection__item__head">
+  <div class="cookie-manager__selection__item">
+    <div class="cookie-manager__selection__item__head">
       {{ translate(category.name) }}
     </div>
-    <div class="consentmanager__selection__item__info">
+    <div class="cookie-manager__selection__item__info">
       {{ translate(category.description) }}
     </div>
-    <div class="consentmanager__selection__item__consent">
+    <div class="cookie-manager__selection__item__consent">
       <span @click="detailsOpen = !detailsOpen">{{
           detailsOpen ? detailsShowLess : detailsShowMore
         }}</span>
-      <label class="consentmanager-slider">
+      <label class="cookie-manager-slider">
         <input
             :disabled="category.required"
             :checked="category.required"
@@ -21,17 +21,17 @@
       </label>
     </div>
 
-    <div class="consentmanager__selection__item__details" v-show="detailsOpen">
+    <div class="cookie-manager__selection__item__details" v-show="detailsOpen">
       <div
-          class="consentmanager__selection__item__detail"
-          v-for="service in services"
+          class="cookie-manager__selection__item__detail"
+          v-for="service in getServicesByCategoryId(category.id)"
           :key="service.name"
       >
-        <div class="consentmanager__selection__item__detail__head">
-          <div class="consentmanager__selection__item__details__name">
+        <div class="cookie-manager__selection__item__detail__head">
+          <div class="cookie-manager__selection__item__details__name">
             {{ service.name }}
           </div>
-          <label class="consentmanager-slider">
+          <label class="cookie-manager-slider">
             <input
                 type="checkbox"
                 :disabled="category.required"
@@ -41,26 +41,26 @@
             />
           </label>
         </div>
-        <div class="consentmanager__selection__item__detail__body">
+        <div class="cookie-manager__selection__item__detail__body">
           <div
-              class="consentmanager__selection__item__detail__description"
+              class="cookie-manager__selection__item__detail__description"
               v-if="service.vendor"
           >
             <span
                 class="
-                consentmanager__selection__item__detail__description__label
+                cookie-manager__selection__item__detail__description__label
               "
             >{{ $t("vendor") }}</span
             >
             {{ translate(service.vendor) }}
           </div>
           <div
-              class="consentmanager__selection__item__detail__description"
+              class="cookie-manager__selection__item__detail__description"
               v-if="service.description"
           >
             <span
                 class="
-                consentmanager__selection__item__detail__description__label
+                cookie-manager__selection__item__detail__description__label
               "
             >{{ $t("description") }}</span
             >
@@ -68,12 +68,12 @@
           </div>
 
           <div
-              class="consentmanager__selection__item__detail__description"
+              class="cookie-manager__selection__item__detail__description"
               v-if="service.dataCollected"
           >
             <span
                 class="
-                consentmanager__selection__item__detail__description__label
+                cookie-manager__selection__item__detail__description__label
               "
             >{{ $t("dataCollected") }}</span
             >
@@ -81,10 +81,10 @@
           </div>
 
           <div
-              class="consentmanager__selection__item__detail__description"
+              class="cookie-manager__selection__item__detail__description"
               v-if="service.cookies"
           >
-            <table class="consentmanager__selection__item__detail__cookies">
+            <table class="cookie-manager__selection__item__detail__cookies">
               <tr>
                 <th>{{ $t("name") }}</th>
                 <th>{{ $t("duration") }}</th>
@@ -99,12 +99,12 @@
           </div>
 
           <div
-              class="consentmanager__selection__item__detail__description"
+              class="cookie-manager__selection__item__detail__description"
               v-if="service.privacyPolicy"
           >
             <a
                 class="
-                consentmanager__selection__item__detail__description__label
+                cookie-manager__selection__item__detail__description__label
               "
                 :href="service.privacyPolicy"
             >{{ $t("linkToPrivacyPolicy") }}</a
@@ -118,9 +118,10 @@
 
 <script>
 import {isObject} from "@/util";
+import {mapGetters} from "vuex";
 
 export default {
-  name: "Consent",
+  name: "Category",
   props: {
     category: Object,
   },
@@ -132,9 +133,9 @@ export default {
     };
   },
   computed: {
-    services() {
-      return this.$store.getters.getServicesByCategoryId(this.category.id);
-    },
+    ...mapGetters('vcm', {
+      getServicesByCategoryId: 'getServicesByCategoryId'
+    }),
   },
   methods: {
     toggleCategory(category) {

@@ -1,29 +1,29 @@
 <template>
-  <div class="consentmanager__consent">
-    <div class="consentmanager__consent__heading">
+  <div class="cookie-manager__consent">
+    <div class="cookie-manager__consent__heading">
       {{ $t('consentView.title') }}
     </div>
-    <div class="consentmanager__consent__text">
+    <div class="cookie-manager__consent__text">
       {{ $t('consentView.description') }}
     </div>
-    <div class="consentmanager__consent__actions">
+    <div class="cookie-manager__consent__actions">
       <button
           @click="goToSettings"
-          class="consentmanager-button consentmanager__consent__settings"
+          class="cookie-manager-button cookie-manager__consent__settings"
       >
         {{ $t('settings') }}
       </button>
-      <button class="consentmanager-button" @click="$parent.denyAll() || $parent.apply()">
+      <button class="cookie-manager-button" @click="$parent.denyAll() || $parent.apply()">
         {{ $t('decline') }}
       </button>
       <button
-          class="consentmanager-button primary"
+          class="cookie-manager-button primary"
           @click="$parent.acceptAll() || $parent.apply()"
       >
         {{ $t('acceptAll') }}
       </button>
     </div>
-    <div class="consentmanager__consent__links">
+    <div class="cookie-manager__consent__links">
       <a v-if="privacyPolicy" :href="privacyPolicy">{{ $t('privacyPolicy') }}</a>
       <a v-if="imprint" :href="imprint">{{ $t('imprint') }}</a>
     </div>
@@ -37,13 +37,13 @@ export default {
   name: "Consent",
   computed: {
     ...mapState({
-      privacyPolicy: state => state.pcm.privacyPolicy,
-      imprint: state => state.pcm.imprint,
+      privacyPolicy: state => state.vcm.privacyPolicy,
+      imprint: state => state.vcm.imprint,
     }),
   },
   methods: {
     goToSettings() {
-      this.$store.commit("setViewId", 1);
+      this.$store.commit("vcm/setViewId", 1);
     },
   },
 };

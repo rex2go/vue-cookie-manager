@@ -1,9 +1,9 @@
-import ConsentManager from "@/ConsentManager";
+import ConsentManager from "@/CookieManager";
 import i18n from './i18n'
 import {createStore} from "vuex";
 import store from "@/store";
 
-const install = (app, options) => {
+const install = app => {
     const vi18n = app.__VUE_I18N__;
     const vstore = app._context?.provides?.store;
 
@@ -21,11 +21,11 @@ const install = (app, options) => {
     if (!vstore) {
         app.use(createStore({
             modules: {
-                pcm: store,
+                vcm: store,
             },
         }));
     } else {
-        vstore.registerModule('pcm', store);
+        vstore.registerModule('vcm', store);
     }
 
     app.component(ConsentManager.name, ConsentManager);
