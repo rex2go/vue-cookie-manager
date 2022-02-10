@@ -18,6 +18,19 @@
     font-size: 16px;
     color: $black;
 
+    &__language-switch {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        border: none;
+        background: transparent;
+
+        &:focus, &:active, &:focus-visible {
+            border: none;
+            outline: none;
+        }
+    }
+
     @media screen and (max-width: 768px) {
         align-items: flex-end;
     }
@@ -31,7 +44,7 @@
             border-radius: 15px;
             width: 40px;
             height: 20px;
-            background-color: #e4e4e4;
+            background-color: #b5b5b5;
             position: relative;
             display: flex;
             align-items: center;
@@ -204,14 +217,12 @@
 
     &__selection {
         &__list {
-            margin: 1rem 0;
+            margin: 1.5rem 0 1rem 0;
             max-height: 400px;
-            overflow: auto;
             border-radius: 5px;
+            overflow: auto;
 
             @media screen and (min-width: 769px) {
-                padding: 1rem;
-                background-color: #ececec;
             }
         }
 
@@ -227,13 +238,19 @@
         }
 
         &__item {
-            background-color: $white;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             padding: 1rem;
             border-radius: 8px;
+            box-shadow: 0px 3px 2px 0 rgb(0 0 0 / 6%), 0 2px 1px 0px rgb(0 0 0 / 4%), 0 2px 3px 0 rgb(0 0 0 / 8%);
+            background-color: #fafafa;
+            margin-bottom: 1rem;
 
-            &:not(:last-child) {
-                margin-bottom: 1rem;
+            &:not(&--details-open) {
+                cursor: help;
+
+                &:hover {
+                    background-color: #f3f3f3;
+                }
             }
 
             &__head {
@@ -257,7 +274,6 @@
                 > span {
                     cursor: pointer;
                     font-size: 0.8rem;
-                    text-decoration: underline;
                 }
             }
 
@@ -294,6 +310,7 @@
                         color: $black;
                         display: block;
                         margin-bottom: 0.5rem;
+                        font-weight: bold;
                     }
                 }
 

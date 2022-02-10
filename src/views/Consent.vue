@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapGetters, mapState} from 'vuex'
 
 export default {
   name: "Consent",
@@ -39,6 +39,9 @@ export default {
     ...mapState({
       privacyPolicy: state => state.vcm.privacyPolicy,
       imprint: state => state.vcm.imprint,
+    }),
+    ...mapGetters('vcm', {
+      $vcm_t: 'translate',
     }),
   },
   methods: {

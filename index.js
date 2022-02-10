@@ -1,13 +1,9 @@
 import CookieManager from "./src/CookieManager";
 import {createStore} from "vuex";
 import store from "./src/store";
-import { translate, tData} from "@/translation";
 
 const install = app => {
     const vstore = app._context?.provides?.store;
-
-    app.config.globalProperties.$vcm_td = tData;
-    app.config.globalProperties.$vcm_t = translate;
 
     if (!vstore) {
         app.use(createStore({

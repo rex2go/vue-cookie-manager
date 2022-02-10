@@ -1,5 +1,5 @@
 <template>
-  <div class="cookie-manager__selection__item">
+  <div class="cookie-manager__selection__item" :class="{'cookie-manager__selection__item--details-open': detailsOpen}" @click="detailsOpen = !detailsOpen">
     <div class="cookie-manager__selection__item__head">
       {{ translate(category.name) }}
     </div>
@@ -7,8 +7,8 @@
       {{ translate(category.description) }}
     </div>
     <div class="cookie-manager__selection__item__consent">
-      <span @click="detailsOpen = !detailsOpen">{{
-          detailsOpen ? detailsShowLess : detailsShowMore
+      <span>{{
+          detailsOpen ? $vcm_t("showLess") : $vcm_t("showMore")
         }}</span>
       <label class="cookie-manager-slider">
         <input
@@ -122,7 +122,7 @@
 
 <script>
 import {isObject} from "../util";
-import {mapGetters} from "vuex";
+import {mapGetters, mapState} from "vuex";
 
 export default {
   name: "Category",
@@ -132,29 +132,31 @@ export default {
   data() {
     return {
       detailsOpen: false,
-      detailsShowMore: this.$vcm_t("showMore"),
-      detailsShowLess: this.$vcm_t("showLess"),
     };
   },
   computed: {
+    ...mapState('vcm', {
+      locale: 'locale',
+    }),
     ...mapGetters('vcm', {
-      getServicesByCategoryId: 'getServicesByCategoryId'
+      getServicesByCategoryId: 'getServicesByCategoryId',
+      $vcm_t: 'translate',
     }),
   },
   methods: {
     toggleCategory(category) {
-      this.services.forEach((service) => (service.active = category.active));
+      this.getServicesByCategoryId(category.id).forEach((service) => (service.active = category.active));
     },
     toggleService(event) {
       if (event.target.checked && !this.category.active) {
         this.category.active = true;
-      } else if (!this.services.filter((service) => service.active).length) {
+      } else if (!this.getServicesByCategoryId(this.category.id).filter((service) => service.active).length) {
         this.category.active = false;
       }
     },
     translate(obj) {
       if (isObject(obj)) {
-        return obj[this.$vcm_td.locale] ?? obj;
+        return obj[this.locale] ?? obj['en'] ?? obj;
       }
 
       return obj;

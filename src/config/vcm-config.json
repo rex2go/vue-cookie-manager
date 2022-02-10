@@ -24,17 +24,16 @@
       "vendor": "Tim Hübert",
       "category": 0,
       "description": "",
-      "privacyPolicy": "https://puzzlewithfriends.net/privacy-policy",
       "dataCollected": "",
       "cookies": [
         {
           "name": "cm_consent",
-          "duration": "12 Monate",
-          "description": ""
+          "duration": {
+            "de": "Unbegrenzt",
+            "en": "Unlimited"
+          },
+          "description": "Speichert die Einstellungen des Cookie-Managers"
         }
-      ],
-      "scripts": [
-        "abc.js"
       ]
     },
     {

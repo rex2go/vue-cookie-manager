@@ -1,6 +1,9 @@
 <template>
   <div v-if="showCookieManager" class="cookie-manager">
     <div class="cookie-manager__dialogue">
+      <select class="cookie-manager__language-switch" @change="changeLanguage">
+        <option v-for="locale of Object.keys(messages)" :value="locale">{{ locale }}</option>
+      </select>
       <Consent v-if="viewId === 0"/>
       <Settings v-if="viewId === 1"/>
     </div>
@@ -39,10 +42,11 @@ export default {
     this.apply();
   },
   created() {
-    this.$vcm_td.locale = (navigator.language || navigator.userLanguage)?.split('-')[0] || this.locale || 'en';
+    const locale = (navigator.language || navigator.userLanguage)?.split('-')[0] || this.locale || 'en';
+    this.$store.commit('vcm/setLocale', locale);
 
     if (this.config) {
-      this.$store.commit('setConfig', this.config);
+      this.$store.commit('vcm/setConfig', this.config);
     }
 
     if (this.locales) {
@@ -60,6 +64,7 @@ export default {
       showCookieManager: 'showCookieManager',
       services: 'services',
       categories: 'categories',
+      messages: 'messages',
     }),
   },
   methods: {
@@ -68,6 +73,12 @@ export default {
     },
     denyAll() {
       this.services.forEach((service) => (service.active = false));
+    },
+    changeLanguage($event) {
+      this.changeLocale($event.target.value);
+    },
+    changeLocale(locale) {
+      this.$store.commit('vcm/setLocale', locale);
     },
     apply() {
       const categoryRequiredMapping = {};

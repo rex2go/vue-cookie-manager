@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import {mapState} from "vuex";
+import {mapGetters, mapState} from "vuex";
 import Category from "../components/Category.vue";
 
 export default {
@@ -37,6 +37,9 @@ export default {
   computed: {
     ...mapState('vcm', {
       categories: 'categories',
+    }),
+    ...mapGetters('vcm', {
+      $vcm_t: 'translate',
     }),
   },
   methods: {
